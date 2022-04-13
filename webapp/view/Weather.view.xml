@@ -1,0 +1,52 @@
+<mvc:View 
+	controllerName="weatherapp.controller.Weather" 
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.f"
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:sv="sap.ui.comp.smartvariants"
+	height="100%"
+  	width="100%">
+	<f:DynamicPage id="synamicPage" busy="{local>/UIControl/busy}" showFooter="false">
+		
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+                    <Title text="Weather"></Title>
+				</f:heading>
+                <f:content>
+                    <OverflowToolbar>
+                        <GenericTag text="SR"
+                            status="Error"
+                            press="onPressOpenPopover"
+                            design="StatusIconHidden">
+                            <ObjectNumber number="-"
+                                unit="°C"
+                                emphasized="false"
+                                state="Error"/>
+                        </GenericTag>
+                    </OverflowToolbar>
+                </f:content>
+				<f:snappedContent>
+					<Text id="statusText"></Text>
+				</f:snappedContent>
+
+			</f:DynamicPageTitle>
+		</f:title>
+		<f:header>
+			<f:DynamicPageHeader>
+				<f:content>
+                    <!--Content -->
+                    <Text text="tes" />
+                </f:content>
+                
+			</f:DynamicPageHeader>
+		</f:header>
+		<f:content>
+            <!-- Content -->
+		</f:content>
+
+	</f:DynamicPage>
+</mvc:View>
