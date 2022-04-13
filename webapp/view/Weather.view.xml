@@ -17,6 +17,7 @@
 				</f:heading>
                 <f:content>
                     <OverflowToolbar>
+                        <!-- Title DynamicPage - Tag Usada para informar o clima por geolocalização -->
                         <GenericTag text="{local>/HeaderWeather/nameCity}"
                             status="{= ${local>/HeaderWeather/degreeCels} &lt; 0 ? 'Error' : 'None'}"
                             busy="{local>/UIControl/busy}"
@@ -29,9 +30,6 @@
                         </GenericTag>
                     </OverflowToolbar>
                 </f:content>
-				<f:snappedContent>
-					<Text id="statusText"></Text>
-				</f:snappedContent>
 
 			</f:DynamicPageTitle>
 		</f:title>
@@ -41,10 +39,10 @@
                     <!--Content -->
                     <fb:FilterBar search="onSearch" showRestoreButton="true" useToolbar="false">
 						<fb:filterGroupItems>
-
+                            <!-- Componente para filtro para filtrar o clima por cidade -->
 							<fb:FilterGroupItem name="A" groupName="__$INTERNAL$" label="{i18n>WeatherView.Cidade}" labelTooltip="{i18n>WeatherView.Cidade}"  visibleInFilterBar="true">
 								<fb:control>
-									<Input name="Cidade" change="onChangeCidade" />
+									<Input name="Cidade" change="onChangeCity" />
 								</fb:control>
 							</fb:FilterGroupItem>
 
@@ -63,6 +61,7 @@
 							<l:GridData span="XL3 L3 M12 S12"/>
 						</layoutData>
 						<f:GridContainer>
+                            <!-- KPI com informações detalhada do clima filtrado -->
 							<w:Card id="cardKPI" manifest="{manifests>/stackedReward}">
 								<w:layoutData>
 									<f:GridContainerItemLayoutData rows="2" columns="5" />
@@ -76,65 +75,9 @@
 						</f:GridContainer>
 					</Panel>				
 				</l:Grid>
-                <l:Grid containerQuery="true">
-					<!-- <Panel height="100%">
-						<layoutData>
-							<l:GridData span="XL3 L3 M12 S12"/>
-						</layoutData>
-						<f:GridContainer>
-							<GenericTile  header="Indicações"
-                                press="onPressIndicaceos" >
-                                <TileContent>
-                                    <ImageContent src="{imageModel>/path}/img/10d@4x.png" />
-                                </TileContent>
-                            </GenericTile>
-						</f:GridContainer>
-					</Panel>				 -->
-				</l:Grid>
+                <l:Grid containerQuery="true" />
 			</HBox>
-            <!-- <f:Card class="sapUiMediumMargin" width="300px">
-                <f:header>
-                    <card:Header
-                        title="Buy bus ticket on-line"
-                        subtitle="Buy a single-ride ticket for a date"
-                        iconSrc="sap-icon://bus-public-transport" />
-                </f:header>
-                <f:content>
-                    <VBox
-                        height="110px"
-                        class="sapUiSmallMargin"
-                        justifyContent="SpaceBetween">
-                        <HBox justifyContent="SpaceBetween">
-                            <ComboBox
-                                width="120px"
-                                placeholder="From City"
-                                items="{
-                                    path: 'cities>/cities',
-                                    sorter: { path: 'text' }
-                                }">
-                                <core:Item key="{cities>key}" text="{cities>text}" />
-                            </ComboBox>
-                            <ComboBox
-                                width="120px"
-                                placeholder="To City"
-                                items="{
-                                    path: 'cities>/cities',
-                                    sorter: { path: 'text' }
-                                }">
-                                <core:Item key="{cities>key}" text="{cities>text}" />
-                            </ComboBox>
-                        </HBox>
-                        <HBox renderType="Bare" justifyContent="SpaceBetween">
-                            <DatePicker width="200px" placeholder="Choose Date ..." />
-                            <Button
-                                text="Book"
-                                press=".onBookPress"
-                                type="Emphasized"
-                                class="sapUiTinyMarginBegin" />
-                        </HBox>
-                    </VBox>
-                </f:content>
-            </f:Card> -->
+            
 
 		</f:content>
 

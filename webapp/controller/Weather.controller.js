@@ -13,7 +13,7 @@ sap.ui.define([
                 this._loadLocalJSON();
                 //Carregar a localização atual pela Latitude e Longitude
                 this._loadLocation();
-                //Carregar a lista das cidades do Brasil
+                //Carregar a lista das cidades do Brasil - Ainda não implementado
                 //Carregar Content Card
                 this._configManifestCard();
             },
@@ -82,8 +82,6 @@ sap.ui.define([
             _configManifestCard: function () {
                 let oModelExist = this.getModel("manifests");
 
-				let sPropertyRec = "/stackedReward/sap.card/header";
-
 				if (!oModelExist) {
 					let oCardManifests = new JSONModel();
 
@@ -126,7 +124,7 @@ sap.ui.define([
 				});
 			},
 
-            onChangeCidade: function (oEvent) {
+            onChangeCity: function (oEvent) {
                 let sValue = oEvent.getParameter("value");
 
                 if (sValue) {
