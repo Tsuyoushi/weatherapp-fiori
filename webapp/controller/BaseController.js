@@ -98,7 +98,11 @@ sap.ui.define([
                 sTextReturn = aReturn.join("&");
 
                 return sTextReturn;
-            }           
+            },
+            
+            onAlterarBusy: function(bState) {
+				this.getModel("local").setProperty("/UIControl/busy", bState);
+            }
 
 
         });

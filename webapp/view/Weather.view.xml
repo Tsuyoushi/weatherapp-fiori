@@ -14,18 +14,19 @@
 		<f:title>
 			<f:DynamicPageTitle>
 				<f:heading>
-                    <Title text="Weather"></Title>
+                    <Title text="{i18n>WeatherView.Clima}"></Title>
 				</f:heading>
                 <f:content>
                     <OverflowToolbar>
-                        <GenericTag text="SR"
-                            status="Error"
-                            press="onPressOpenPopover"
+                        <GenericTag text="{local>/HeaderWeather/nameCity}"
+                            status="{= ${local>/HeaderWeather/degreeCels} &lt; 0 ? 'Error' : 'None'}"
+                            busy="{local>/UIControl/busy}"
+                            press="onPressPopoverInfo"
                             design="StatusIconHidden">
-                            <ObjectNumber number="-"
+                            <ObjectNumber number="{local>/HeaderWeather/degreeCels}"
                                 unit="°C"
                                 emphasized="false"
-                                state="Error"/>
+                                state="{= ${local>/HeaderWeather/degreeCels} &lt; 0 ? 'Error' : 'Information'}"/>
                         </GenericTag>
                     </OverflowToolbar>
                 </f:content>
