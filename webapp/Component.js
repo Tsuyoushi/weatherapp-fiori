@@ -23,6 +23,12 @@ sap.ui.define([
                 // enable routing
                 this.getRouter().initialize();
 
+                var oRootPath = jQuery.sap.getModulePath("weatherapp");
+                var oImageModel = new sap.ui.model.json.JSONModel({
+                    path : oRootPath
+                });
+                this.setModel(oImageModel, "imageModel");
+
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
             }

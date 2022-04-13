@@ -1,12 +1,11 @@
 <mvc:View 
 	controllerName="weatherapp.controller.Weather" 
 	xmlns="sap.m"
-	xmlns:core="sap.ui.core"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:f="sap.f"
-	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
-	xmlns:smartTable="sap.ui.comp.smarttable"
-	xmlns:sv="sap.ui.comp.smartvariants"
+	xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:w="sap.ui.integration.widgets"
+	xmlns:l="sap.ui.layout"
 	height="100%"
   	width="100%">
 	<f:DynamicPage id="synamicPage" busy="{local>/UIControl/busy}" showFooter="false">
@@ -40,13 +39,103 @@
 			<f:DynamicPageHeader>
 				<f:content>
                     <!--Content -->
-                    <Text text="tes" />
+                    <fb:FilterBar search="onSearch" showRestoreButton="true" showClearButton="true" useToolbar="false">
+						<fb:filterGroupItems>
+
+							<fb:FilterGroupItem name="A" groupName="__$INTERNAL$" label="{i18n>WeatherView.Cidade}" labelTooltip="{i18n>WeatherView.Cidade}"  visibleInFilterBar="true">
+								<fb:control>
+									<Input name="Cidade" change="onChangeCidade" />
+								</fb:control>
+							</fb:FilterGroupItem>
+
+						</fb:filterGroupItems>
+
+					</fb:FilterBar>
                 </f:content>
                 
 			</f:DynamicPageHeader>
 		</f:header>
 		<f:content>
-            <!-- Content -->
+            <HBox visible="{local>/UI/First}" class="HboxLine">
+				<l:Grid containerQuery="true">
+					<Panel height="100%">
+						<layoutData>
+							<l:GridData span="XL3 L3 M12 S12"/>
+						</layoutData>
+						<f:GridContainer>
+							<w:Card id="cardKPI" manifest="{manifests>/stackedReward}">
+								<w:layoutData>
+									<f:GridContainerItemLayoutData rows="2" columns="5" />
+								</w:layoutData>
+							</w:Card>
+                            <GenericTile header="{i18n>WeatherView.EstadoClima}" >
+                                <TileContent>
+                                    <ImageContent src="{imageModel>/path}/img/{manifests>/iconWeather}.png" />
+                                </TileContent>
+                            </GenericTile>
+						</f:GridContainer>
+					</Panel>				
+				</l:Grid>
+                <l:Grid containerQuery="true">
+					<!-- <Panel height="100%">
+						<layoutData>
+							<l:GridData span="XL3 L3 M12 S12"/>
+						</layoutData>
+						<f:GridContainer>
+							<GenericTile  header="Indicações"
+                                press="onPressIndicaceos" >
+                                <TileContent>
+                                    <ImageContent src="{imageModel>/path}/img/10d@4x.png" />
+                                </TileContent>
+                            </GenericTile>
+						</f:GridContainer>
+					</Panel>				 -->
+				</l:Grid>
+			</HBox>
+            <!-- <f:Card class="sapUiMediumMargin" width="300px">
+                <f:header>
+                    <card:Header
+                        title="Buy bus ticket on-line"
+                        subtitle="Buy a single-ride ticket for a date"
+                        iconSrc="sap-icon://bus-public-transport" />
+                </f:header>
+                <f:content>
+                    <VBox
+                        height="110px"
+                        class="sapUiSmallMargin"
+                        justifyContent="SpaceBetween">
+                        <HBox justifyContent="SpaceBetween">
+                            <ComboBox
+                                width="120px"
+                                placeholder="From City"
+                                items="{
+                                    path: 'cities>/cities',
+                                    sorter: { path: 'text' }
+                                }">
+                                <core:Item key="{cities>key}" text="{cities>text}" />
+                            </ComboBox>
+                            <ComboBox
+                                width="120px"
+                                placeholder="To City"
+                                items="{
+                                    path: 'cities>/cities',
+                                    sorter: { path: 'text' }
+                                }">
+                                <core:Item key="{cities>key}" text="{cities>text}" />
+                            </ComboBox>
+                        </HBox>
+                        <HBox renderType="Bare" justifyContent="SpaceBetween">
+                            <DatePicker width="200px" placeholder="Choose Date ..." />
+                            <Button
+                                text="Book"
+                                press=".onBookPress"
+                                type="Emphasized"
+                                class="sapUiTinyMarginBegin" />
+                        </HBox>
+                    </VBox>
+                </f:content>
+            </f:Card> -->
+
 		</f:content>
 
 	</f:DynamicPage>

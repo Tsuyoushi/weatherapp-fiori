@@ -1,0 +1,51 @@
+{
+	"stackedReward": {
+		"sap.app": {
+			"id": "com.brz.pani.model.stackedReward",
+			"type": "card"
+		},
+		"sap.card": {
+			"type": "Analytical",
+			"header": {
+				"type": "Numeric",
+				"data": {
+					"json": {
+						"n": "...",
+						"u": "°C",
+						"valueColor": "Good",
+						"state":"Neutral",
+						"feelsLike": "...",
+						"humidity": "...",
+						"speedWind": "...",
+						"details": "..."
+					}
+				},
+				"title": "...",
+				"subTitle": "...",
+				"mainIndicator": {
+					"number": "{n}",
+					"unit": "{u}",
+					"state":"{state}"
+				},
+                "sideIndicators": [
+                    {
+                      "title": "Sensação Térmica",
+                      "number": "{feelsLike}",
+                      "unit": "°C"
+                    },
+                    {
+                      "title": "Umidade",
+                      "number": "{humidity}",
+                      "unit": "%"
+                    },
+                    {
+                      "title": "Velocidade Vento",
+                      "number": "{speedWind}",
+                      "unit": "m/s"
+                    }
+                ],
+				"details": "Ultima atualização: {details}"
+			}
+		}
+	}
+}

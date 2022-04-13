@@ -1,5 +1,13 @@
 /* Enter your custom styles here */
 /* Enter your custom styles here */
 #viewPortContainer > div {
-    width: 100% !important;
-  }
+  	width: 100% !important;
+}
+
+.sapMPanelContent:not(.sapMPanelBGTransparent) {
+  	border-bottom: 0!important;
+}
+
+.HboxLine > div {
+    width: 100%!important;
+}
