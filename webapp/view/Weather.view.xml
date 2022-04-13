@@ -39,7 +39,7 @@
 			<f:DynamicPageHeader>
 				<f:content>
                     <!--Content -->
-                    <fb:FilterBar search="onSearch" showRestoreButton="true" showClearButton="true" useToolbar="false">
+                    <fb:FilterBar search="onSearch" showRestoreButton="true" useToolbar="false">
 						<fb:filterGroupItems>
 
 							<fb:FilterGroupItem name="A" groupName="__$INTERNAL$" label="{i18n>WeatherView.Cidade}" labelTooltip="{i18n>WeatherView.Cidade}"  visibleInFilterBar="true">
